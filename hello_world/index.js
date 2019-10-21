@@ -28,7 +28,7 @@ app.get('/form/get', (req, res) => {
 
 app.post('/form/post', (req, res) => {
     res.render('user/index', {
-        query: req.query
+        query2: req.query
     })
 })
 
