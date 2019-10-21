@@ -1,0 +1,20 @@
+form(action="/form/get" method="GET")
+    input(type="text" name='name')
+    input(type="text", name="text")
+    button submit
+
+form(action="/form/post" method="post")
+    input(type="text" name='name')
+    input(type="text", name="text")
+    button submit post
+
+if query    
+    h2 get
+    ul
+        each key in query
+            li= key
+
+    h2 post
+    ul
+        each key in query
+            li= key
