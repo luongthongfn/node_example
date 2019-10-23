@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addItem, toggle } from "../action";
+import { addItem, toggle } from "../state/action";
 class NoteForm extends React.Component {
     constructor(props) {
         super(props);

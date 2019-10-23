@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { removeItem } from "../action";
+import { removeItem } from "../state/action";
 const Note = props => {
     function remove() {
         let { dispatch, index } = props;

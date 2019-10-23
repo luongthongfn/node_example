@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 
 import List from "./components/List";
-import store from "./storeConf";
+import store from "./state/storeConf";
 
 class App extends Component {
     render() {
