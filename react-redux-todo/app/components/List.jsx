@@ -10,7 +10,9 @@ class List extends React.Component {
             <div>
                 <NoteForm />
                 {this.props.arr.map((item, i) => {
-                    return (<Note key={i} index={i} > {item}</Note>)
+                    return (
+                        <Note key={i} index={i} > {item} </Note>
+                    )
                 })}
             </div>
         );
