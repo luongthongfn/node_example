@@ -1,20 +1,21 @@
-function addTodoAction(text){
+export function addTodoAction(text){
     return {
         type: "ADD_TODO",
         text
     }
 }
 
-function removeTodoAction(index){
+export function removeTodoAction(index){
     return {
         type: "REMOVE_TODO",
         index
     }
 }
 
-function toggleIsCompleteAction(){
+export function toggleIsCompleteAction(index){
     return {
-        type: "TOGGLE_COMPLETE_TODO"
+        type: "TOGGLE_COMPLETE_TODO",
+        index
     }
 }
 
