@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import {Provider} from 'react-redux';
+import Form from './Form';
+import List from './List';
+import store from '../state/store/storeCfg';
 class TodoApp extends Component {
     constructor(props) {
         super(props);
@@ -9,9 +12,10 @@ class TodoApp extends Component {
         return (
             <div>
                 <h1>Todo app</h1>
-                
-                <Form/>
-                <List/>
+                <Provider store={store}>
+                    <Form/>
+                    <List/>
+                </Provider>
             </div>
         );
     }

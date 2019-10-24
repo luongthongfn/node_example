@@ -5,7 +5,9 @@ class Note extends Component {
         this.state = {  }
     }
     render() { 
-        return ();
+        return (
+            <div></div>
+        );
     }
 }
  

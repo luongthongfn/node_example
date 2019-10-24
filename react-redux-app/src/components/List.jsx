@@ -1,6 +1,6 @@
 import React, { Component } from 'react';   
 import {connect} from 'react-redux';
-
+import Note from './Note';
 class List extends Component {
     constructor(props) {
         super(props);
@@ -9,11 +9,10 @@ class List extends Component {
     render() { 
         return (
             <div>
-                <Form/>
                 <Note/>
             </div>
         );
     }
 }
  
-export default List;
+export default connect()(List);
