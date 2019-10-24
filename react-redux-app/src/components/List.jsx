@@ -11,7 +11,7 @@ class List extends Component {
             <div>
                 {this.props.todo.map((item, i) => {
                     return (
-                        <Note key={i} index={i}>
+                        <Note key={i} index={i} isComplete={item.isComplete}>
                             {item}
                         </Note>
                     );

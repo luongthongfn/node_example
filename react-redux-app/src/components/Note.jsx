@@ -14,7 +14,7 @@ class Note extends Component {
         return (
             <div>
                 {!this.props.isComplete ? (
-                    this.props.children.text
+                    this.props.children.text +" ~~~ "+ this.props.children.isComplete
                 ) : (
                     <strike>{this.props.children.text}</strike>
                 )}

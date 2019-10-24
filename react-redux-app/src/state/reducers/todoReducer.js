@@ -32,7 +32,9 @@ function todoReducer(state = prevTodoState, action) {
             return state.filter((item, i)=> i!== action.index)
             
         case 'TOGGLE_COMPLETE_TODO':
-            return state[action.index].isComplete = !state[action.index].isComplete
+            let state1 = state
+            state1[action.index].isComplete = !state1[action.index].isComplete
+            return state1
     
         default:
             return state;
