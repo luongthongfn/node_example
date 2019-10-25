@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleIsCompleteAction } from '../state/actions';
+import { toggleIsCompleteAction, removeTodoAction } from '../state/actions';
 class Note extends Component {
     constructor(props) {
         super(props);
         this.toggleComplete = this.toggleComplete.bind(this);
+        this.del = this.del.bind(this);
+
+        this.dispatch = this.props.dispatch;
     }
     toggleComplete() {
-        let { dispatch } = this.props;
-        dispatch(toggleIsCompleteAction(this.props.index));
+        this.dispatch(toggleIsCompleteAction(this.props.index));
+    }
+    del(index) {
+        this.dispatch(removeTodoAction(this.props.index));
     }
     render() {
         return (
-            <div>
+            <li>
                 {!this.props.isComplete ? (
-                    this.props.children.text +" ~~~ "+ this.props.children.isComplete
+                    this.props.children.text
                 ) : (
                     <strike>{this.props.children.text}</strike>
                 )}
+                &nbsp; &nbsp; &nbsp;
+                <button onClick={this.del}>del</button>
                 <button onClick={this.toggleComplete}>complete</button>
-            </div>
+            </li>
         );
     }
 }
 
-export default connect(state => ({ isComplete: state.isComplete }))(Note);
+export default connect()(Note);

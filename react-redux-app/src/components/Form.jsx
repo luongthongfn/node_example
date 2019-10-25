@@ -4,7 +4,6 @@ import { addTodoAction } from '../state/actions';
 class Form extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
         this.addTodo = this.addTodo.bind(this);
     }
     addTodo() {
