@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import Form from './Form';
-import List from './List';
+import TodoWrap from './TodoWrap';
+
 import store from '../state/store/storeCfg';
 class TodoApp extends Component {
     constructor(props) {
@@ -13,8 +13,7 @@ class TodoApp extends Component {
             <div>
                 <h1>Todo asd</h1>
                 <Provider store={store}>
-                    <Form />
-                    <List />
+                    <TodoWrap />
                 </Provider>
             </div>
         );
