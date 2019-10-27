@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 // import todoReducer from '../state/reducers/todoReducer';
 
 import Form from './Form';
@@ -10,10 +10,10 @@ class TodoWrap extends Component {
         return (
             <div>
                 <Form />
-                <List todo={this.props.todo} />
+                <List/>
             </div>
         );
     }
 }
 
-export default connect(state => ({ todo: state.todoReducer }))(TodoWrap);
+export default TodoWrap;

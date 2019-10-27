@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Note from './Note';
+import Node from './Node';
 
 class List extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        console.log(this.props)
+        console.log('List props: ', this.props);
     }
     render() {
         return (
-            <ul>
-                {this.props.todo.map((item, i) => {
-                    return (
-                        <Note key={i} index={i} isComplete={item.isComplete} todo={item.todo}>
-                            {item}
-                        </Note>
-                    );
-                })}
-            </ul>
+            <Node id={0} />
         );
     }
 }
 
-export default connect()(List);
+export default List;
