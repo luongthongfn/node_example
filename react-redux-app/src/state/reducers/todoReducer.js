@@ -37,7 +37,7 @@ const prevTodoState = [
     }
 ];
 
-function todoReducer(state ={}/* = prevTodoState */, action) {
+function todoReducer(state = prevTodoState, action) {
     switch (action.type) {
         case 'ADD_TODO':
             return [...state, { text: action.text, isComplete: false }];

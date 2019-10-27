@@ -41,4 +41,4 @@ class Node extends Component {
     }
 }
 
-export default connect((state, ownProps) => (state[ownProps.id])(Node))
+export default connect((state, ownProps) => (state.todoReducer[ownProps.id]))(Node)
