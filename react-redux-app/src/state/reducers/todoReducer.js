@@ -46,9 +46,9 @@ function todoReducer(state = prevTodoState, action) {
             return state.filter((item, i) => i !== action.index);
 
         case 'TOGGLE_COMPLETE_TODO':
-            return state.map((item, i) => {
-                return action.index === i
-                    ? { text: item.text, isComplete: !item.isComplete }
+            return state.map((item) => {
+                return action.id === item.id
+                    ? {...item, isComplete: !item.isComplete}
                     : item;
             });
 

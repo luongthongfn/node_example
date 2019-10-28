@@ -7,9 +7,7 @@ class List extends Component {
         console.log('List props: ', this.props);
     }
     render() {
-        return (
-            <Node id={0} />
-        );
+        return <Node id={0} />;
     }
 }
 

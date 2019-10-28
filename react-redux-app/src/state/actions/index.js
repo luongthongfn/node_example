@@ -12,10 +12,10 @@ export function removeTodoAction(index){
     }
 }
 
-export function toggleIsCompleteAction(index){
+export function toggleIsCompleteAction(id){
     return {
         type: "TOGGLE_COMPLETE_TODO",
-        index
+        id
     }
 }
 

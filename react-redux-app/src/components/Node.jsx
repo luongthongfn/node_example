@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { toggleIsCompleteAction, removeTodoAction } from '../state/actions';
 
-import List from './List';
-class Node extends Component {
+export class Node extends Component {
     constructor(props) {
         super(props);
         this.toggleComplete = this.toggleComplete.bind(this);
@@ -11,34 +10,53 @@ class Node extends Component {
         this.addChild = this.addChild.bind(this);
 
         this.dispatch = this.props.dispatch;
-        console.log('props: ', props)
+        console.log(`props ${this.props.id}: `, props);
     }
     toggleComplete() {
-        this.dispatch(toggleIsCompleteAction(this.props.index));
+        this.dispatch(toggleIsCompleteAction(this.props.id));
     }
-    del(index) {
-        this.dispatch(removeTodoAction(this.props.index));
+    del(id, parentId) { 
+        this.dispatch(removeTodoAction(this.props.id ));
     }
     addChild() {}
     render() {
         let { id, text, isComplete, childs } = this.props;
+
         return (
-            <ul>
-                <li>
-                    {isComplete ? (
-                        text + isComplete
-                    ) : (
-                        <strike>{text + isComplete}</strike>
-                    )}
-                    &nbsp; &nbsp; &nbsp;
-                    <button /* onClick={this.del} */>del</button>
-                    <button /* onClick={this.toggleComplete} */>complete</button>
-                    <button /* onClick={this.addChild} */>add child</button>
-                    {this.props.todo && <List todo={this.props.todo} />}
-                </li>
-            </ul>
+            <>
+                {id !== 0 && (
+                    <>
+                        {isComplete ? (
+                            <strike>{text + isComplete}</strike>
+                        ) : (
+                            text + isComplete
+                        )}
+                        &nbsp; &nbsp; &nbsp;
+                        <button onClick={this.del}>del</button>
+                        <button onClick={this.toggleComplete}>
+                            complete
+                        </button>
+                        <button /* onClick={this.addChild} */>add child</button>
+                        
+                    </>
+                )}
+
+                {childs && childs.length > 0 && (
+                    <ul>
+                        {childs.map((childId, i) => (
+                            <li key={i}>
+                                <ConnectedNode id={childId} parentId={id} />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </>
         );
     }
 }
 
-export default connect((state, ownProps) => (state.todoReducer[ownProps.id]))(Node)
+const ConnectedNode = connect(
+    (state, ownProps) => state.todoReducer[ownProps.id]
+)(Node);
+
+export default ConnectedNode;
