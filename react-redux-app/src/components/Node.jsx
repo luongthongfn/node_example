@@ -16,7 +16,7 @@ export class Node extends Component {
         this.dispatch(toggleIsCompleteAction(this.props.id));
     }
     del(id, parentId) { 
-        this.dispatch(removeTodoAction(this.props.id ));
+        this.dispatch(removeTodoAction(this.props.id, this.props.parentId));
     }
     addChild() {}
     render() {
@@ -44,7 +44,7 @@ export class Node extends Component {
                 {childs && childs.length > 0 && (
                     <ul>
                         {childs.map((childId, i) => (
-                            <li key={i}>
+                            <li key={i} data-id={childId}>
                                 <ConnectedNode id={childId} parentId={id} />
                             </li>
                         ))}

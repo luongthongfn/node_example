@@ -37,18 +37,30 @@ const prevTodoState = [
     }
 ];
 
+let nextId = 0;
 function todoReducer(state = prevTodoState, action) {
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state, { text: action.text, isComplete: false }];
+            return [
+                ...state,
+                {
+                    id: `new_${++nextId}`,
+                    text: action.text,
+                    isComplete: false,
+                    childs: []
+                }
+            ];
 
         case 'REMOVE_TODO':
-            return state.filter((item, i) => i !== action.index);
+            console.log('sate: ', state, 'action: ', action)
+            var index = state[action.parentId].childs.indexOf(action.id);
+            state[action.parentId].childs.splice(index, 1);
+            return state.filter(item => item.id !== action.id);
 
         case 'TOGGLE_COMPLETE_TODO':
-            return state.map((item) => {
+            return state.map(item => {
                 return action.id === item.id
-                    ? {...item, isComplete: !item.isComplete}
+                    ? { ...item, isComplete: !item.isComplete }
                     : item;
             });
 

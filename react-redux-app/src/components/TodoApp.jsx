@@ -11,7 +11,7 @@ class TodoApp extends Component {
     render() {
         return (
             <div>
-                <h1>Todo asd</h1>
+                {/* <h1>Todo asd</h1> */}
                 <Provider store={store}>
                     <TodoWrap />
                 </Provider>

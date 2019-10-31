@@ -5,10 +5,11 @@ export function addTodoAction(text){
     }
 }
 
-export function removeTodoAction(index){
+export function removeTodoAction(id, parentId){
     return {
         type: "REMOVE_TODO",
-        index
+        id,
+        parentId
     }
 }
 
